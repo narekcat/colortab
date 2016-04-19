@@ -1,0 +1,73 @@
+// colortab.odl : type library source for ActiveX Control project.
+
+// This file will be processed by the Make Type Library (mktyplib) tool to
+// produce the type library (colortab.tlb) that will become a resource in
+// colortab.ocx.
+
+#include <olectl.h>
+#include <idispids.h>
+
+[ uuid(C24A698F-BEC6-443C-9BC5-936D1C8B4902), version(1.0),
+  helpfile("colortab.hlp"),
+  helpstring("colortab ActiveX Control module"),
+  control ]
+library COLORTABLib
+{
+	importlib(STDOLE_TLB);
+	importlib(STDTYPE_TLB);
+
+	//  Primary dispatch interface for CColortabCtrl
+
+	[ uuid(5D7F527B-A1F1-4C05-97A1-8C390C449BD8),
+	  helpstring("Dispatch interface for Colortab Control"), hidden ]
+	dispinterface _DColortab
+	{
+		properties:
+			// NOTE - ClassWizard will maintain property information here.
+			//    Use extreme caution when editing this section.
+			//{{AFX_ODL_PROP(CColortabCtrl)
+			[id(1)] long choocecolor;
+			[id(2)] short y;
+			[id(3)] short x;
+			//}}AFX_ODL_PROP
+
+		methods:
+			// NOTE - ClassWizard will maintain method information here.
+			//    Use extreme caution when editing this section.
+			//{{AFX_ODL_METHOD(CColortabCtrl)
+			//}}AFX_ODL_METHOD
+
+			[id(DISPID_ABOUTBOX)] void AboutBox();
+	};
+
+	//  Event dispatch interface for CColortabCtrl
+
+	[ uuid(D2A15EBF-D2BF-45BA-80E1-BF2606507B1E),
+	  helpstring("Event interface for Colortab Control") ]
+	dispinterface _DColortabEvents
+	{
+		properties:
+			//  Event interface has no properties
+
+		methods:
+			// NOTE - ClassWizard will maintain event information here.
+			//    Use extreme caution when editing this section.
+			//{{AFX_ODL_EVENT(CColortabCtrl)
+			[id(DISPID_CLICK)] void Click();
+			//}}AFX_ODL_EVENT
+	};
+
+	//  Class information for CColortabCtrl
+
+	[ uuid(CB4A96A8-611E-45DC-A51B-EEA0A7FDEE9E),
+	  helpstring("Colortab Control"), control ]
+	coclass Colortab
+	{
+		[default] dispinterface _DColortab;
+		[default, source] dispinterface _DColortabEvents;
+	};
+
+
+	//{{AFX_APPEND_ODL}}
+	//}}AFX_APPEND_ODL}}
+};
